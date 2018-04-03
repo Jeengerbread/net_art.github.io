@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 75, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				
+				geometry = new THREE.TorusGeometry(100.21, 54.92, 40, 40, 18.85);
+				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.96;
+				mesh.position.y = 15.44;
+				mesh.rotation.x = 1.59;
+				mesh.rotation.y = 3.18;
+				scene.add(mesh);
+
+				pgeometry = new THREE.PlaneGeometry( 1000, 1000, 20, 20 );
+				map = THREE.ImageUtils.loadTexture('../texturez/water.jpg');
+				pmaterial = new THREE.MeshPhongMaterial({ map: map });
+				map.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map.repeat.set( 6.26, 6.26 );
+				plane = new THREE.Mesh( pgeometry, pmaterial );
+				plane.rotation.x = - Math.PI / 2;
+				plane.receiveShadow	= true;
+				plane.scale.set( 30, 30, 30 );
+				scene.add( plane );
+
+				bg = document.body.style;
+				bg.background = '#3c5b72';
+
+scene.fog = new THREE.Fog( 0x000000, 993.49, 10000 );
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				
+				camera.lookAt(mesh.position);
+				mesh.position.y = Math.sin( Date.now() * .001 ) * 4;
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 75, W/H, 3, 10000 );
+				camera.position.z = 600;
+
+				scene = new THREE.Scene();
+				
+				
+				geometry = new THREE.TorusGeometry(100.21, 54.92, 40, 40, 18.85);
+				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.96;
+				mesh.position.y = 15.44;
+				mesh.rotation.x = 2.5;
+				mesh.rotation.y = 3.18;
+				scene.add(mesh);
+
+				pgeometry = new THREE.PlaneGeometry( 1000, 1000, 20, 20 );
+				map = THREE.ImageUtils.loadTexture('../texturez/water.jpg');
+				pmaterial = new THREE.MeshPhongMaterial({ map: map });
+				map.wrapS = map.wrapT = THREE.RepeatWrapping;
+				map.repeat.set( 6.26, 6.26 );
+				plane = new THREE.Mesh( pgeometry, pmaterial );
+				plane.rotation.x = - Math.PI / 2;
+				plane.receiveShadow	= true;
+				plane.scale.set( 30, 30, 30 );
+				scene.add( plane );
+
+				bg = document.body.style;
+				bg.background = '#3c5b72';
+
+scene.fog = new THREE.Fog( 0x000000, 993.49, 10000 );
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				
+				camera.lookAt(mesh.position);
+				mesh.position.z = Math.sin( Date.now() * .005 ) * 40;
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+		
+	</body>
+</html>
+
+		</script>
+		
+	</body>
+</html>
