@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* CSS Document */
+
+			body {
+                background-color: #ffffff;
+                margin: 0;
+			}
+           
+			h1,h2,h3 {text-align: center; color:blue;}
+			
+			/*h2{
+                color:black;
+                font-family: "Helvetica Neue";
+                font-size: 20px;
+				text-align: center;
+            }*/
+			ol {
+				align-text:left;
+				font-size: 14px;
+				font-family: "Helvetica Neue";
+			}
+			#heading{ text-align: center;}
